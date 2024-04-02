@@ -10,7 +10,6 @@ import static utilities.Constants.*;
 public class Pong {
     private static final String TITLE = "Pong";
     public Ball ball;
-    public List<Ball> ballList;
 
     public Pong() {
         ball = Ball.makeNewBall();
