@@ -1,9 +1,6 @@
 package game;
 
 import utilities.JEasyFrame;
-import javax.swing.*;
-
-import java.util.List;
 
 import static utilities.Constants.*;
 
