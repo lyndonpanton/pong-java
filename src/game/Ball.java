@@ -55,7 +55,5 @@ public class Ball {
     public void update() {
         x += velocityX * DT;
         y += velocityY * DT;
-        x = (x + FRAME_WIDTH) % FRAME_WIDTH;
-        y = (y + FRAME_HEIGHT) % FRAME_HEIGHT;
     }
 }
