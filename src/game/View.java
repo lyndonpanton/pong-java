@@ -20,6 +20,7 @@ public class View extends JComponent {
 
         g2D.setColor(BACKGROUND_COLOR);
         g2D.fillRect(0, 0, getWidth(), getHeight());
+        game.ball.draw(g2D);
     }
 
     @Override

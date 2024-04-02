@@ -3,13 +3,30 @@ package game;
 import utilities.JEasyFrame;
 import javax.swing.*;
 
-public class Pong {
-//    private static final String TITLE = "Pong";
+import static utilities.Constants.*;
 
-    public static void main(String[] args) {
+public class Pong {
+    private static final String TITLE = "Pong";
+    public Ball ball;
+
+    public Pong() {
+        ball = Ball.makeNewBall();
+    }
+
+    public static void main(String[] args) throws InterruptedException {
         Pong pong = new Pong();
         View view = new View(pong);
 
-        JEasyFrame easyFrame = new JEasyFrame(view, "Pong");
+        JEasyFrame easyFrame = new JEasyFrame(view, TITLE);
+
+        while (true) {
+            pong.update();
+            view.repaint();
+            Thread.sleep(DELAY);
+        }
+    }
+
+    public void update() {
+        ball.update();
     }
 }
