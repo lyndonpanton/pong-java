@@ -33,10 +33,10 @@ public class Pong {
         ball.update();
 
         if (
-                ball.getX() < 0
-                || ball.getX() > FRAME_WIDTH
-                || ball.getY() < 0
-                || ball.getY() > FRAME_HEIGHT
+                ball.getX() < -Ball.RADIUS
+                || ball.getX() > FRAME_WIDTH + Ball.RADIUS
+                || ball.getY() < -Ball.RADIUS
+                || ball.getY() > FRAME_HEIGHT + Ball.RADIUS
         ) {
             ball = Ball.makeNewBall();
         }
