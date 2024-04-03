@@ -64,4 +64,9 @@ public class Ball {
     public double getY() {
         return this.y;
     }
+
+    public void reverseVelocityY()
+    {
+        this.velocityY *= -1;
+    }
 }
