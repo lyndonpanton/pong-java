@@ -11,12 +11,14 @@ public class Ball {
 
     private double x, y;
     private double velocityX, velocityY;
+    public boolean dead;
 
     public Ball(double x, double y, double velocityX, double velocityY) {
         this.x = x;
         this.y = y;
         this.velocityX = velocityX;
         this.velocityY = velocityY;
+        this.dead = false;
     }
 
     public static Ball makeNewBall() {
@@ -55,6 +57,16 @@ public class Ball {
     public void update() {
         x += velocityX * DT;
         y += velocityY * DT;
+
+        if (getX() < -Ball.RADIUS
+                || getX() > FRAME_WIDTH + Ball.RADIUS
+        ) {
+            this.dead = true;
+        } else if (getY() - Ball.RADIUS <= 0
+                || getY() + Ball.RADIUS >= FRAME_HEIGHT)
+        {
+            reverseVelocityY();
+        }
     }
 
     public double getX() {

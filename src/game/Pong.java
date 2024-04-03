@@ -28,14 +28,6 @@ public class Pong {
     public void update() {
         ball.update();
 
-        if (ball.getX() < -Ball.RADIUS
-                || ball.getX() > FRAME_WIDTH + Ball.RADIUS
-        ) {
-            ball = Ball.makeNewBall();
-        } else if (ball.getY() - Ball.RADIUS <= 0
-                || ball.getY() + Ball.RADIUS >= FRAME_HEIGHT)
-        {
-            ball.reverseVelocityY();
-        }
+        if (ball.dead) ball = Ball.makeNewBall();
     }
 }
