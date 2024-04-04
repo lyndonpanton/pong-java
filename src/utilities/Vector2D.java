@@ -53,13 +53,25 @@ public class Vector2D {
         return this;
     }
 
-//    public double angle() {
-//
-//    }
+    public double angle() {
+        return Math.atan2(this.y, this.x);
+    }
 
-//    public double angle(Vector2D vO) {
-//
-//    }
+    public double angle(Vector2D v) {
+        double thisAngle = this.angle();
+        double vAngle = v.angle();
+        double difference = vAngle - thisAngle;
+
+        if (difference < -Math.PI)
+        {
+            difference += 2 * Math.PI;
+        } else if (difference > Math.PI)
+        {
+            difference -= 2 * Math.PI;
+        }
+
+        return difference;
+    }
 
     /**
      * Given a pair of cartesian coordinates, return a polar coordinate pair
@@ -118,9 +130,9 @@ public class Vector2D {
         );
     }
 
-//    public Vector2D rotate(double angle) {
-//
-//    }
+    public Vector2D rotate(double angle) {
+        return this;
+    }
 
     public Vector2D set(double x, double y) {
         this.x = x;
