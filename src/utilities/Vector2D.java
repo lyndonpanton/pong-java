@@ -58,6 +58,19 @@ public class Vector2D {
 //
 //    }
 
+    /**
+     * Given a pair of cartesian coordinates, return a polar coordinate pair
+     * @param x
+     * @param y
+     * @return The polar coordinate pair
+     */
+    public static Vector2D cartesian(double x, double y) {
+        return new Vector2D(
+                Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)),
+                Math.atan2(y, x)
+        );
+    }
+
     public double distance(Vector2D v) {
         double xDifference = Math.abs(this.x - v.x);
         double yDifference = Math.abs(this.y - v.y);
@@ -89,9 +102,18 @@ public class Vector2D {
         return this;
     }
 
-//    public static Vector2D toPolar() {
-//
-//    }
+    /**
+     * Given a pair of polar coordinates, return a cartesian coordinate pair
+     * @param angle
+     * @param magnitude
+     * @return The cartesian coordinate pair
+     */
+    public static Vector2D polar(double angle, double magnitude) {
+        return new Vector2D(
+            magnitude * Math.cos(angle),
+            magnitude * Math.sin(angle)
+        );
+    }
 
 //    public Vector2D rotate(double angle) {
 //
