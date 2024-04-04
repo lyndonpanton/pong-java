@@ -46,9 +46,12 @@ public class Vector2D {
         return this;
     }
 
-//    public Vector2D addScaled(Vector2D v, double factor) {
-//
-//    }
+    public Vector2D addScaled(Vector2D v, double factor) {
+        this.x += (v.x * factor);
+        this.y += (v.y * factor);
+
+        return this;
+    }
 
 //    public double angle() {
 //
