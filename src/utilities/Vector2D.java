@@ -54,6 +54,7 @@ public class Vector2D {
     }
 
     public double angle() {
+//        return Math.acos(dotProduct(this));
         return Math.atan2(this.y, this.x);
     }
 
@@ -130,9 +131,19 @@ public class Vector2D {
         );
     }
 
-    public Vector2D rotate(double angle) {
-        return this;
-    }
+//    public Vector2D rotate(double angle) {
+//        double rotatedAngle = Math.abs(this.angle() + angle);
+//
+//        if (rotatedAngle < 0) {
+//            rotatedAngle += 2 * Math.PI;
+//        } else if (rotatedAngle > 2 * Math.PI) {
+//            rotatedAngle -= 2 * Math.PI;
+//        }
+//
+//        double magnitude = magnitude();
+//
+//        return polar(rotatedAngle, magnitude);
+//    }
 
     public Vector2D set(double x, double y) {
         this.x = x;
