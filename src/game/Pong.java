@@ -1,15 +1,44 @@
 package game;
 
+import utilities.Controller;
 import utilities.JEasyFrame;
+import utilities.Keys;
+import utilities.Vector2D;
+
+import java.awt.*;
 
 import static utilities.Constants.*;
 
 public class Pong {
     private static final String TITLE = "Pong";
+    private static final Color PLAYER_ONE_COLOR = Color.RED;
+    private static final Color PLAYER_TWO_COLOR = Color.GREEN;
     public Ball ball;
+    public Keys controller;
+    public Paddle playerOne;
+    public Paddle playerTwo;
 
     public Pong() {
         ball = Ball.makeNewBall();
+        controller = new Keys();
+        playerOne = new Paddle(
+                controller,
+                new Vector2D(
+                        50,
+                        (double) FRAME_HEIGHT / 2 - (double) Paddle.HEIGHT / 2
+                ),
+                new Vector2D(0,0),
+                PLAYER_ONE_COLOR
+        );
+        playerTwo = new Paddle(
+                controller,
+                new Vector2D(
+                        FRAME_WIDTH - 50,
+                        (double) FRAME_HEIGHT / 2 - (double) Paddle.HEIGHT / 2
+                ),
+                new Vector2D(0,0),
+                PLAYER_TWO_COLOR
+        );
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -17,6 +46,7 @@ public class Pong {
         View view = new View(pong);
 
         JEasyFrame easyFrame = new JEasyFrame(view, TITLE);
+        easyFrame.addKeyListener(pong.controller);
 
         while (true) {
             pong.update();
@@ -26,6 +56,8 @@ public class Pong {
     }
 
     public void update() {
+        playerOne.update();
+        playerTwo.update();
         ball.update();
 
         if (ball.dead) ball = Ball.makeNewBall();
