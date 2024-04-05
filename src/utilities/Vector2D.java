@@ -1,5 +1,8 @@
 package utilities;
 
+import static utilities.Constants.FRAME_HEIGHT;
+import static utilities.Constants.FRAME_WIDTH;
+
 public class Vector2D {
     public double x, y;
 
@@ -76,8 +79,8 @@ public class Vector2D {
 
     /**
      * Given a pair of cartesian coordinates, return a polar coordinate pair
-     * @param x
-     * @param y
+     * @param x The x property of the cartesian coordinate
+     * @param y The y property of the cartesian coordinate
      * @return The polar coordinate pair
      */
     public static Vector2D cartesian(double x, double y) {
@@ -120,8 +123,8 @@ public class Vector2D {
 
     /**
      * Given a pair of polar coordinates, return a cartesian coordinate pair
-     * @param angle
-     * @param magnitude
+     * @param angle The angle property of the polar coordinate
+     * @param magnitude The magnitude property of the polar coordinate
      * @return The cartesian coordinate pair
      */
     public static Vector2D polar(double angle, double magnitude) {
@@ -131,19 +134,25 @@ public class Vector2D {
         );
     }
 
-//    public Vector2D rotate(double angle) {
-//        double rotatedAngle = Math.abs(this.angle() + angle);
-//
-//        if (rotatedAngle < 0) {
-//            rotatedAngle += 2 * Math.PI;
-//        } else if (rotatedAngle > 2 * Math.PI) {
-//            rotatedAngle -= 2 * Math.PI;
-//        }
-//
-//        double magnitude = magnitude();
-//
-//        return polar(rotatedAngle, magnitude);
-//    }
+    public Vector2D rotate(double angle) {
+        double rotatedX = this.x * Math.cos(angle) - this.y * Math.sin(angle);
+        double rotatedY = this.x * Math.sin(angle) + this.y * Math.cos(angle);
+
+        return set(
+                new Vector2D(
+                        rotatedX,
+                        rotatedY
+                )
+        );
+    }
+    /*
+        = (2x2) + (1 x 2)
+        - Valid because outer digits, 2 and 2 are equal)
+        - Will produce a 2x1 vector (because inner digits are 2 and 1)
+
+        1 * cos(60) + -2 * sin(60)
+        1 * sin(60) + -2 * cos(60)
+     */
 
     public Vector2D set(double x, double y) {
         this.x = x;
