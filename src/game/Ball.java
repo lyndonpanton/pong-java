@@ -1,6 +1,9 @@
 package game;
 
+import utilities.Vector2D;
+
 import java.awt.*;
+import java.beans.VetoableChangeListener;
 import java.lang.management.GarbageCollectorMXBean;
 
 import static utilities.Constants.*;
@@ -9,22 +12,27 @@ public class Ball {
     public static final int RADIUS = 10;
     public static final double MAX_SPEED = 100;
 
-    private double x, y;
-    private double velocityX, velocityY;
+    private Vector2D position;
+    private Vector2D velocity;
     public boolean dead;
 
     public Ball(double x, double y, double velocityX, double velocityY) {
-        this.x = x;
-        this.y = y;
-        this.velocityX = velocityX;
-        this.velocityY = velocityY;
-        this.dead = false;
+        this.position = new Vector2D(x, y);
+        this.velocity = new Vector2D(velocityX, velocityY);
+//        this.dead = false;
+    }
+
+    public Ball(Vector2D position, Vector2D velocity) {
+        this.position = position;
+        this.velocity = velocity;
     }
 
     public static Ball makeNewBall() {
         // Start in the center position
-        double x = (double) FRAME_WIDTH / 2;
-        double y = (double) FRAME_HEIGHT / 2;
+        Vector2D position = new Vector2D(
+                (double) FRAME_WIDTH / 2,
+                (double) FRAME_HEIGHT / 2
+        );
 
         // Allow ball to also go up or left
         int velocityXMultiplier = 1;
@@ -38,25 +46,27 @@ public class Ball {
             velocityYMultiplier *= -1;
         }
 
-        double velocityX = ((Math.random() * MAX_SPEED) + 1) * velocityXMultiplier;
-        double velocityY = ((Math.random() * MAX_SPEED) + 1) * velocityYMultiplier;
+        Vector2D velocity = new Vector2D(
+                ((Math.random() * MAX_SPEED) + 1) * velocityXMultiplier,
+                ((Math.random() * MAX_SPEED) + 1) * velocityYMultiplier
+        );
 
-        return new Ball(x, y, velocityX, velocityY);
+        return new Ball(position, velocity);
     }
 
     public void draw(Graphics2D g2D) {
         g2D.setColor(Color.WHITE);
         g2D.fillOval(
-                (int) x - RADIUS,
-                (int) y - RADIUS,
+                (int) this.position.x - RADIUS,
+                (int) this.position.y - RADIUS,
                 2 * RADIUS,
                 2 * RADIUS
         );
     }
 
     public void update() {
-        x += velocityX * DT;
-        y += velocityY * DT;
+        this.position.x += this.velocity.x * DT;
+        this.position.y += this.velocity.y * DT;
 
         if (getX() < -Ball.RADIUS
                 || getX() > FRAME_WIDTH + Ball.RADIUS
@@ -70,15 +80,15 @@ public class Ball {
     }
 
     public double getX() {
-        return this.x;
+        return this.position.x;
     }
 
     public double getY() {
-        return this.y;
+        return this.position.y;
     }
 
     public void reverseVelocityY()
     {
-        this.velocityY *= -1;
+        this.velocity.y *= -1;
     }
 }
