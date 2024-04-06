@@ -10,7 +10,7 @@ import static utilities.Constants.*;
 
 public class Ball {
     public static final int RADIUS = 10;
-    public static final double MAX_SPEED = 100;
+    public static final double HORIZONTAL_SPEED = 150;
 
     private Vector2D position;
     private Vector2D velocity;
@@ -47,8 +47,8 @@ public class Ball {
         }
 
         Vector2D velocity = new Vector2D(
-                ((Math.random() * MAX_SPEED) + 1) * velocityXMultiplier,
-                ((Math.random() * MAX_SPEED) + 1) * velocityYMultiplier
+                (HORIZONTAL_SPEED) * Math.cos(position.angle()) * velocityXMultiplier,
+                (HORIZONTAL_SPEED) * Math.sin(position.angle()) * velocityYMultiplier
         );
 
         return new Ball(position, velocity);
@@ -65,8 +65,13 @@ public class Ball {
     }
 
     public void update() {
-        this.position.x += this.velocity.x * DT;
-        this.position.y += this.velocity.y * DT;
+//        this.position.x += this.velocity.x * DT;
+//        this.position.y += this.velocity.y * DT;
+
+        this.position = this.position.add(new Vector2D(
+                this.velocity.x * DT,
+                this.velocity.y * DT
+        ));
 
         if (getX() < -Ball.RADIUS) {
             this.dead = true;
