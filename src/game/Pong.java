@@ -15,10 +15,11 @@ public class Pong {
     public Paddle playerTwo;
     public PlayerOneKeys playerOneController;
     public PlayerTwoKeys playerTwoController;
+    public static int playerOneScore;
+    public static int playerTwoScore;
 
     public Pong() {
         ball = Ball.makeNewBall();
-//        controller = new Keys();
         playerOneController = new PlayerOneKeys();
         playerTwoController = new PlayerTwoKeys();
         playerOne = new Paddle(
@@ -41,6 +42,8 @@ public class Pong {
                 ControlType.ARROWS,
                 PLAYER_TWO_COLOR
         );
+        playerOneScore = 0;
+        playerTwoScore = 0;
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -64,5 +67,21 @@ public class Pong {
         ball.update();
 
         if (ball.dead) ball = Ball.makeNewBall();
+    }
+
+    public static void incrementPlayerOneScore() {
+        playerOneScore += 1;
+    }
+
+    public static void incrementPlayerTwoScore() {
+        playerTwoScore += 1;
+    }
+
+    public static int getPlayerOneScore() {
+        return playerOneScore;
+    }
+
+    public static int getPlayerTwoScore() {
+        return playerTwoScore;
     }
 }

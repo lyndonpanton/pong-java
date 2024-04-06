@@ -68,10 +68,12 @@ public class Ball {
         this.position.x += this.velocity.x * DT;
         this.position.y += this.velocity.y * DT;
 
-        if (getX() < -Ball.RADIUS
-                || getX() > FRAME_WIDTH + Ball.RADIUS
-        ) {
+        if (getX() < -Ball.RADIUS) {
             this.dead = true;
+            Pong.incrementPlayerTwoScore();
+        } else if (getX() > FRAME_WIDTH + Ball.RADIUS) {
+            this.dead = true;
+            Pong.incrementPlayerOneScore();
         } else if (getY() - Ball.RADIUS <= 0
                 || getY() + Ball.RADIUS >= FRAME_HEIGHT)
         {
