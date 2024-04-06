@@ -3,8 +3,8 @@ package utilities;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class Keys extends KeyAdapter implements Controller {
-    private Action action;
+public abstract class Keys extends KeyAdapter implements Controller {
+    protected Action action;
 
     public Keys()
     {
@@ -16,33 +16,7 @@ public class Keys extends KeyAdapter implements Controller {
         return action;
     }
 
-    public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode();
+    public abstract void keyPressed(KeyEvent e);
 
-        switch (key) {
-            case KeyEvent.VK_W:
-            case KeyEvent.VK_UP:
-                action.movement = -1;
-                break;
-            case KeyEvent.VK_S:
-            case KeyEvent.VK_DOWN:
-                action.movement = 1;
-                break;
-            case KeyEvent.VK_ESCAPE:
-                action.togglePause = !action.togglePause;
-        }
-    }
-
-    public void keyReleased(KeyEvent e) {
-        int key = e.getKeyCode();
-
-        switch (key) {
-            case KeyEvent.VK_W:
-            case KeyEvent.VK_UP:
-            case KeyEvent.VK_S:
-            case KeyEvent.VK_DOWN:
-                action.movement = 0;
-                break;
-        }
-    }
+    public abstract void keyReleased(KeyEvent e);
 }

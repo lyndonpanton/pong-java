@@ -51,22 +51,28 @@ public class Paddle {
             Stop the paddle past the vertical edges of the screen
          */
 
-        if (controlType == ControlType.LETTERS) {
-            if (action.togglePause) {
-
-            } else if (action.movement > 0) {
-                this.position.y += SPEED * DT;
-            } else if (action.movement < 0) {
-                this.position.y -= SPEED * DT;
-            }
-        } else if (controlType == ControlType.ARROWS) {
-            if (action.togglePause) {
-
-            } else if (action.movement > 0) {
-                this.position.y += SPEED * DT;
-            } else if (action.movement < 0) {
-                this.position.y -= SPEED * DT;
-            }
+        if (action.movement > 0) {
+            this.position.y += SPEED * DT;
+        } else if (action.movement < 0) {
+            this.position.y -= SPEED * DT;
         }
+
+//        if (controlType == ControlType.LETTERS) {
+//            if (action.togglePause) {
+//
+//            } else if (action.movement > 0) {
+//                this.position.y += SPEED * DT;
+//            } else if (action.movement < 0) {
+//                this.position.y -= SPEED * DT;
+//            }
+//        } else if (controlType == ControlType.ARROWS) {
+//            if (action.togglePause) {
+//
+//            } else if (action.movement > 0) {
+//                this.position.y += SPEED * DT;
+//            } else if (action.movement < 0) {
+//                this.position.y -= SPEED * DT;
+//            }
+//        }
     }
 }

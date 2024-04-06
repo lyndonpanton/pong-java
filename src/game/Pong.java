@@ -11,15 +11,18 @@ public class Pong {
     private static final Color PLAYER_ONE_COLOR = Color.RED;
     private static final Color PLAYER_TWO_COLOR = Color.GREEN;
     public Ball ball;
-    public Keys controller;
     public Paddle playerOne;
     public Paddle playerTwo;
+    public PlayerOneKeys playerOneController;
+    public PlayerTwoKeys playerTwoController;
 
     public Pong() {
         ball = Ball.makeNewBall();
-        controller = new Keys();
+//        controller = new Keys();
+        playerOneController = new PlayerOneKeys();
+        playerTwoController = new PlayerTwoKeys();
         playerOne = new Paddle(
-                controller,
+                playerOneController,
                 new Vector2D(
                         50,
                         (double) FRAME_HEIGHT / 2 - (double) Paddle.HEIGHT / 2
@@ -29,7 +32,7 @@ public class Pong {
                 PLAYER_ONE_COLOR
         );
         playerTwo = new Paddle(
-                controller,
+                playerTwoController,
                 new Vector2D(
                         FRAME_WIDTH - 50,
                         (double) FRAME_HEIGHT / 2 - (double) Paddle.HEIGHT / 2
@@ -45,7 +48,8 @@ public class Pong {
         View view = new View(pong);
 
         JEasyFrame easyFrame = new JEasyFrame(view, TITLE);
-        easyFrame.addKeyListener(pong.controller);
+        easyFrame.addKeyListener(pong.playerOneController);
+        easyFrame.addKeyListener(pong.playerTwoController);
 
         while (true) {
             pong.update();
