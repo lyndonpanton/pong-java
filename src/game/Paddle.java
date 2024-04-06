@@ -1,10 +1,13 @@
 package game;
 
 import utilities.Action;
+import utilities.ControlType;
 import utilities.Controller;
 import utilities.Vector2D;
 
 import java.awt.*;
+
+import static utilities.Constants.DT;
 
 public class Paddle {
     public static final int WIDTH = 10;
@@ -19,12 +22,20 @@ public class Paddle {
     public Vector2D direction;
 
     private final Controller controller;
+    private ControlType controlType;
 
-    public Paddle(Controller controller, Vector2D position, Vector2D direction, Color colour) {
+    public Paddle(
+            Controller controller,
+            Vector2D position,
+            Vector2D direction,
+            ControlType controlType,
+            Color colour
+    ) {
         this.controller = controller;
         this.position = position;
         this.velocity = new Vector2D(0, 0);
         this.direction = direction;
+        this.controlType = controlType;
         this.colour = colour;
     }
 
@@ -35,5 +46,27 @@ public class Paddle {
 
     public void update() {
         Action action = controller.getAction();
+
+        /* TODO
+            Stop the paddle past the vertical edges of the screen
+         */
+
+        if (controlType == ControlType.LETTERS) {
+            if (action.togglePause) {
+
+            } else if (action.movement > 0) {
+                this.position.y += SPEED * DT;
+            } else if (action.movement < 0) {
+                this.position.y -= SPEED * DT;
+            }
+        } else if (controlType == ControlType.ARROWS) {
+            if (action.togglePause) {
+
+            } else if (action.movement > 0) {
+                this.position.y += SPEED * DT;
+            } else if (action.movement < 0) {
+                this.position.y -= SPEED * DT;
+            }
+        }
     }
 }

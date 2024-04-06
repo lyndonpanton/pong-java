@@ -1,9 +1,6 @@
 package game;
 
-import utilities.Controller;
-import utilities.JEasyFrame;
-import utilities.Keys;
-import utilities.Vector2D;
+import utilities.*;
 
 import java.awt.*;
 
@@ -28,6 +25,7 @@ public class Pong {
                         (double) FRAME_HEIGHT / 2 - (double) Paddle.HEIGHT / 2
                 ),
                 new Vector2D(0,0),
+                ControlType.LETTERS,
                 PLAYER_ONE_COLOR
         );
         playerTwo = new Paddle(
@@ -37,6 +35,7 @@ public class Pong {
                         (double) FRAME_HEIGHT / 2 - (double) Paddle.HEIGHT / 2
                 ),
                 new Vector2D(0,0),
+                ControlType.ARROWS,
                 PLAYER_TWO_COLOR
         );
     }

@@ -29,7 +29,7 @@ public class Keys extends KeyAdapter implements Controller {
                 action.movement = 1;
                 break;
             case KeyEvent.VK_ESCAPE:
-                action.isPaused = !action.isPaused;
+                action.togglePause = !action.togglePause;
         }
     }
 
