@@ -9,7 +9,7 @@ horizontal, fastest when at the minimum or maximum angle)
 
 ## Gameplay
 
-- [ ] Allow the user to pause the game
+- [ ] Allow the user to pause and unpause the game
 - [ ] Create a win condition (e.g., first player to score ten points wins)
 - [ ] Correct the movement of the paddles
   - Up and down movements should not negatively affect each other
