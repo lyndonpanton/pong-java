@@ -3,8 +3,6 @@ package game;
 import utilities.Vector2D;
 
 import java.awt.*;
-import java.beans.VetoableChangeListener;
-import java.lang.management.GarbageCollectorMXBean;
 
 import static utilities.Constants.*;
 
@@ -75,10 +73,10 @@ public class Ball {
 
         if (getX() < -Ball.RADIUS) {
             this.dead = true;
-            Pong.incrementPlayerTwoScore();
+            Game.incrementPlayerTwoScore();
         } else if (getX() > FRAME_WIDTH + Ball.RADIUS) {
             this.dead = true;
-            Pong.incrementPlayerOneScore();
+            Game.incrementPlayerOneScore();
         } else if (getY() - Ball.RADIUS <= 0
                 || getY() + Ball.RADIUS >= FRAME_HEIGHT)
         {

@@ -13,9 +13,9 @@ public class View extends JComponent {
     public static final int SCORE_FONT_SIZE = 36;
     public static final String font = Font.MONOSPACED;
 
-    private Pong game;
+    private Game game;
 
-    public View(Pong game) {
+    public View(Game game) {
         this.game = game;
     }
 
@@ -36,12 +36,12 @@ public class View extends JComponent {
         ));
 
         g2D.drawString(
-                String.valueOf(Pong.getPlayerOneScore()),
+                String.valueOf(Game.getPlayerOneScore()),
                 50,
                 50
         );
         g2D.drawString(
-                String.valueOf(Pong.getPlayerTwoScore()),
+                String.valueOf(Game.getPlayerTwoScore()),
                 FRAME_WIDTH - 50,
                 50
         );

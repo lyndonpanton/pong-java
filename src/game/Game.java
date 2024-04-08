@@ -6,7 +6,7 @@ import java.awt.*;
 
 import static utilities.Constants.*;
 
-public class Pong {
+public class Game {
     private static final String TITLE = "Pong";
     private static final Color PLAYER_ONE_COLOR = Color.RED;
     private static final Color PLAYER_TWO_COLOR = Color.GREEN;
@@ -18,7 +18,7 @@ public class Pong {
     public static int playerOneScore;
     public static int playerTwoScore;
 
-    public Pong() {
+    public Game() {
         ball = Ball.makeNewBall();
         playerOneController = new PlayerOneKeys();
         playerTwoController = new PlayerTwoKeys();
@@ -47,15 +47,15 @@ public class Pong {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Pong pong = new Pong();
-        View view = new View(pong);
+        Game game = new Game();
+        View view = new View(game);
 
         JEasyFrame easyFrame = new JEasyFrame(view, TITLE);
-        easyFrame.addKeyListener(pong.playerOneController);
-        easyFrame.addKeyListener(pong.playerTwoController);
+        easyFrame.addKeyListener(game.playerOneController);
+        easyFrame.addKeyListener(game.playerTwoController);
 
         while (true) {
-            pong.update();
+            game.update();
             view.repaint();
             Thread.sleep(DELAY);
         }
