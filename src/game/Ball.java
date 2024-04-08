@@ -45,8 +45,10 @@ public class Ball {
         }
 
         Vector2D velocity = new Vector2D(
-                (HORIZONTAL_SPEED) * Math.cos(position.angle()) * velocityXMultiplier,
-                (HORIZONTAL_SPEED) * Math.sin(position.angle()) * velocityYMultiplier
+                (HORIZONTAL_SPEED) * Math.cos(position.angle())
+                        * velocityXMultiplier * DT,
+                (HORIZONTAL_SPEED) * Math.sin(position.angle())
+                        * velocityYMultiplier * DT
         );
 
         return new Ball(position, velocity);
@@ -66,10 +68,10 @@ public class Ball {
 //        this.position.x += this.velocity.x * DT;
 //        this.position.y += this.velocity.y * DT;
 
-        this.position = this.position.add(new Vector2D(
-                this.velocity.x * DT,
-                this.velocity.y * DT
-        ));
+        this.position = new Vector2D(
+                this.position.x + this.velocity.x,
+                this.position.y + this.velocity.y
+        );
 
         if (getX() < -Ball.RADIUS) {
             this.dead = true;

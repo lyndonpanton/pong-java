@@ -5,7 +5,7 @@
 - [ ] Restrict the trajectory of the ball
 - [ ] Base the speed of the ball on the trajectory (e.g., Slowest when going
 horizontal, fastest when at the minimum or maximum angle)
-  - Dependency #1: [Restrict the trajectory of the ball](#game-design)
+    - Dependency #1: [Restrict the trajectory of the ball](#game-design)
 
 ## Gameplay
 
@@ -13,6 +13,10 @@ horizontal, fastest when at the minimum or maximum angle)
 - [ ] Create a win condition (e.g., first player to score ten points wins)
 - [ ] Correct the movement of the paddles
   - Up and down movements should not negatively affect each other
+- [ ] When the ball hits a paddle, its new trajectory should be based off what
+part of the paddle it hit
+    - Store the desired positions on a paddle (e.g., The center, top third,
+    bottom third) can help with this
 
 ## Graphics
 
@@ -25,7 +29,7 @@ horizontal, fastest when at the minimum or maximum angle)
 - [ ] Point scored sound effect
 - [ ] Game start sound effect
 - [ ] Game win sound effect
-  - Dependency #1: [Create a win condition](#gameplay)
+    - Dependency #1: [Create a win condition](#gameplay)
 
 ## User Interface
 
@@ -33,4 +37,4 @@ horizontal, fastest when at the minimum or maximum angle)
     - Dependency #1: [Allow the user to pause the game](#gameplay)
 - [ ] Create a main menu
 - [ ] Create a game end menu
-  - Dependency #1: [Create a win condition](#gameplay)
+    - Dependency #1: [Create a win condition](#gameplay)
