@@ -7,7 +7,7 @@ import utilities.Vector2D;
 
 import java.awt.*;
 
-import static utilities.Constants.DT;
+import static utilities.Constants.*;
 
 public class Paddle extends GameObject {
     public static final int WIDTH = 10;
@@ -85,5 +85,9 @@ public class Paddle extends GameObject {
 //                this.position.y -= SPEED * DT;
 //            }
 //        }
+    }
+
+    public void resetPosition() {
+        this.position.y = (double) FRAME_HEIGHT / 2 - (double) Paddle.HEIGHT / 2;
     }
 }

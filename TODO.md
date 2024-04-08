@@ -7,10 +7,11 @@
 horizontal, fastest when at the minimum or maximum angle)
     - Dependency #1: [Restrict the trajectory of the ball](#game-design)
 - [ ] Reset each paddles position when a point is scored
-- [ ] the paddles if they try to go outside the game's window
+- [ ] Stop the paddles if they try to go outside the game's window
 
 ## Gameplay
 
+- [ ] Reset the game once a player scores a certain number of 10 points
 - [ ] Allow the user to pause and unpause the game
 - [ ] Create a win condition (e.g., first player to score ten points wins)
 - [ ] Correct the movement of the paddles
@@ -21,6 +22,7 @@ part of the paddle it hit
     bottom third) can help with this
 - ADDITIONAL FEATURE: More balls spawn on the screen as the game progresses
 - ADDITIONAL FEATURE: Ball increases velocity as the game progresses
+- ADDITIONAL FEATURE: Balls break up into smaller balls after a certain amount of collisions 
 
 ## Graphics
 

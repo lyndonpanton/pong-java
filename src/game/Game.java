@@ -82,6 +82,11 @@ public class Game {
                     gameObjects.remove(gameObject);
 
                     if (gameObject instanceof Ball) {
+                        for (GameObject otherGameObject: gameObjects) {
+                            if (otherGameObject instanceof Paddle paddle) {
+                                paddle.resetPosition();
+                            }
+                        }
                         ball = Ball.makeNewBall();
                         gameObjects.add(ball);
                     }
