@@ -74,6 +74,10 @@ public class Game {
             for (GameObject gameObject : gameObjects) {
                 gameObject.update();
 
+                for (GameObject otherGameObject: gameObjects) {
+                    gameObject.checkCollision(otherGameObject);
+                }
+
                 if (gameObject.isDead) {
                     gameObjects.remove(gameObject);
 

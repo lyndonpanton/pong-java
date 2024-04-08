@@ -19,7 +19,7 @@ public class Paddle extends GameObject {
     public Vector2D direction;
 
     private final Controller controller;
-    private ControlType controlType;
+    public ControlType controlType;
 
 //    public Paddle(
 //            Controller controller,

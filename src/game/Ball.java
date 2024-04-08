@@ -88,4 +88,11 @@ public class Ball extends GameObject {
     {
         this.velocity.y *= -1;
     }
+
+    /*
+        if ((ball x position + radius / ball x position - radius / ball position) is between (paddle left-most coordinate and paddle right-most coordinate)) {
+
+        }
+
+     */
 }
