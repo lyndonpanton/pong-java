@@ -6,23 +6,16 @@ import java.awt.*;
 
 import static utilities.Constants.*;
 
-public class Ball {
+public class Ball extends GameObject {
     public static final int RADIUS = 10;
     public static final double HORIZONTAL_SPEED = 150;
 
-    private Vector2D position;
-    private Vector2D velocity;
-    public boolean dead;
-
     public Ball(double x, double y, double velocityX, double velocityY) {
-        this.position = new Vector2D(x, y);
-        this.velocity = new Vector2D(velocityX, velocityY);
-//        this.dead = false;
+        super(new Vector2D(x, y), new Vector2D(velocityX, velocityY));
     }
 
     public Ball(Vector2D position, Vector2D velocity) {
-        this.position = position;
-        this.velocity = velocity;
+        super(position, velocity);
     }
 
     public static Ball makeNewBall() {
@@ -68,16 +61,13 @@ public class Ball {
 //        this.position.x += this.velocity.x * DT;
 //        this.position.y += this.velocity.y * DT;
 
-        this.position = new Vector2D(
-                this.position.x + this.velocity.x,
-                this.position.y + this.velocity.y
-        );
+        this.position.add(this.velocity);
 
         if (getX() < -Ball.RADIUS) {
-            this.dead = true;
+            this.isDead = true;
             Game.incrementPlayerTwoScore();
         } else if (getX() > FRAME_WIDTH + Ball.RADIUS) {
-            this.dead = true;
+            this.isDead = true;
             Game.incrementPlayerOneScore();
         } else if (getY() - Ball.RADIUS <= 0
                 || getY() + Ball.RADIUS >= FRAME_HEIGHT)

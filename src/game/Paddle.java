@@ -9,32 +9,43 @@ import java.awt.*;
 
 import static utilities.Constants.DT;
 
-public class Paddle {
+public class Paddle extends GameObject {
     public static final int WIDTH = 10;
     public static final int HEIGHT = 40;
 
     public static final double SPEED = 200;
 
     public Color colour;
-
-    public Vector2D position;
-    public Vector2D velocity;
     public Vector2D direction;
 
     private final Controller controller;
     private ControlType controlType;
 
+//    public Paddle(
+//            Controller controller,
+//            Vector2D position,
+//            Vector2D direction,
+//            ControlType controlType,
+//            Color colour
+//    ) {
+//        super(position, direction);
+//        this.controller = controller;
+//        this.position = position;
+//        this.velocity = new Vector2D(0, 0);
+//        this.direction = direction;
+//        this.controlType = controlType;
+//        this.colour = colour;
+//    }
+
     public Paddle(
             Controller controller,
             Vector2D position,
-            Vector2D direction,
+            Vector2D velocity,
             ControlType controlType,
             Color colour
     ) {
+        super(position, velocity);
         this.controller = controller;
-        this.position = position;
-        this.velocity = new Vector2D(0, 0);
-        this.direction = direction;
         this.controlType = controlType;
         this.colour = colour;
     }

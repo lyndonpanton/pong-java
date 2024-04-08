@@ -13,7 +13,7 @@ public class View extends JComponent {
     public static final int SCORE_FONT_SIZE = 36;
     public static final String font = Font.MONOSPACED;
 
-    private Game game;
+    private final Game game;
 
     public View(Game game) {
         this.game = game;
@@ -25,9 +25,10 @@ public class View extends JComponent {
 
         g2D.setColor(BACKGROUND_COLOR);
         g2D.fillRect(0, 0, getWidth(), getHeight());
-        game.ball.draw(g2D);
-        game.playerOne.draw(g2D);
-        game.playerTwo.draw(g2D);
+
+        for (GameObject gameObject: game.gameObjects) {
+            gameObject.draw(g2D);
+        }
 
         g2D.setColor(TEXT_COLOR);
 

@@ -3,6 +3,8 @@ package game;
 import utilities.*;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 import static utilities.Constants.*;
 
@@ -10,6 +12,7 @@ public class Game {
     private static final String TITLE = "Pong";
     private static final Color PLAYER_ONE_COLOR = Color.RED;
     private static final Color PLAYER_TWO_COLOR = Color.GREEN;
+    public ArrayList<GameObject> gameObjects;
     public Ball ball;
     public Paddle playerOne;
     public Paddle playerTwo;
@@ -44,6 +47,11 @@ public class Game {
         );
         playerOneScore = 0;
         playerTwoScore = 0;
+
+        gameObjects = new ArrayList<>();
+        gameObjects.add(playerOne);
+        gameObjects.add(playerTwo);
+        gameObjects.add(ball);
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -62,11 +70,18 @@ public class Game {
     }
 
     public void update() {
-        playerOne.update();
-        playerTwo.update();
-        ball.update();
+        for (GameObject gameObject: gameObjects) {
+            gameObject.update();
 
-        if (ball.dead) ball = Ball.makeNewBall();
+            if (gameObject.isDead) {
+                gameObjects.remove(gameObject);
+
+                if (gameObject instanceof Ball) {
+                    ball = Ball.makeNewBall();
+                    gameObjects.add(ball);
+                }
+            }
+        }
     }
 
     public static void incrementPlayerOneScore() {

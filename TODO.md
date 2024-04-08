@@ -6,6 +6,8 @@
 - [ ] Base the speed of the ball on the trajectory (e.g., Slowest when going
 horizontal, fastest when at the minimum or maximum angle)
     - Dependency #1: [Restrict the trajectory of the ball](#game-design)
+- Reset each paddles position when a point is scored
+- Stop the paddles if they try to go outside the game's window
 
 ## Gameplay
 
