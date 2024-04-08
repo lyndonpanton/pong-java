@@ -42,11 +42,18 @@ public abstract class GameObject {
                     || (ball.position.x + Ball.RADIUS >= paddle.position.x)
                             && (ball.position.x + Ball.RADIUS <= paddle.position.x + Paddle.WIDTH)
             ) {
-                if (ball.position.x < (double) FRAME_WIDTH / 2) {
-                    System.out.println("Player one <-> Ball collision detected!");
-                } else {
-                    System.out.println("Player two <-> Ball collision detected!");
-                }
+                 if (
+                         (ball.position.y >= paddle.position.y)
+                                 && (ball.position.y <= paddle.position.y + Paddle.HEIGHT)
+                        || (ball.position.y - Ball.RADIUS >= paddle.position.y)
+                                && (ball.position.y - Ball.RADIUS <= paddle.position.y + Paddle.HEIGHT)
+                        || (ball.position.y + Ball.RADIUS >= paddle.position.y)
+                                && (ball.position.y + Ball.RADIUS <= paddle.position.y + Paddle.HEIGHT)
+
+                 ) {
+                     handleCollision();
+                 }
+
             }
         }
 
@@ -54,6 +61,10 @@ public abstract class GameObject {
     }
 
     public void handleCollision() {
-
+        if (this.position.x < FRAME_WIDTH / 2.0) {
+            System.out.println("Handling \"Ball <-> Player one\" collision");
+        } else {
+            System.out.println("Handling \"Ball <-> Player two\" collision");
+        }
     }
 }
