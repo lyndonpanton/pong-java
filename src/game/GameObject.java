@@ -61,6 +61,10 @@ public abstract class GameObject {
     }
 
     public void handleCollision() {
-        this.velocity.x *= -1;
+        if (this.position.x < FRAME_WIDTH / 2.0 && this.velocity.x < 0) {
+            this.velocity.x *= -1;
+        } else if (this.position.x > FRAME_WIDTH / 2.0 && this.velocity.x > 0) {
+            this.velocity.x *= -1;
+        }
     }
 }
