@@ -70,15 +70,17 @@ public class Game {
     }
 
     public void update() {
-        for (GameObject gameObject: gameObjects) {
-            gameObject.update();
+        synchronized (Game.class) {
+            for (GameObject gameObject : gameObjects) {
+                gameObject.update();
 
-            if (gameObject.isDead) {
-                gameObjects.remove(gameObject);
+                if (gameObject.isDead) {
+                    gameObjects.remove(gameObject);
 
-                if (gameObject instanceof Ball) {
-                    ball = Ball.makeNewBall();
-                    gameObjects.add(ball);
+                    if (gameObject instanceof Ball) {
+                        ball = Ball.makeNewBall();
+                        gameObjects.add(ball);
+                    }
                 }
             }
         }

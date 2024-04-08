@@ -26,8 +26,10 @@ public class View extends JComponent {
         g2D.setColor(BACKGROUND_COLOR);
         g2D.fillRect(0, 0, getWidth(), getHeight());
 
-        for (GameObject gameObject: game.gameObjects) {
-            gameObject.draw(g2D);
+        synchronized (Game.class) {
+            for (GameObject gameObject : game.gameObjects) {
+                gameObject.draw(g2D);
+            }
         }
 
         g2D.setColor(TEXT_COLOR);
