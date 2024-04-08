@@ -61,10 +61,6 @@ public abstract class GameObject {
     }
 
     public void handleCollision() {
-        if (this.position.x < FRAME_WIDTH / 2.0) {
-            System.out.println("Handling \"Ball <-> Player one\" collision");
-        } else {
-            System.out.println("Handling \"Ball <-> Player two\" collision");
-        }
+        this.velocity.x *= -1;
     }
 }
