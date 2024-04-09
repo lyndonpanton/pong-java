@@ -20,6 +20,7 @@ public class Game {
     public PlayerTwoKeys playerTwoController;
     public static int playerOneScore;
     public static int playerTwoScore;
+    public final int WIN_SCORE = 10;
 
     public Game() {
         ball = Ball.makeNewBall();
@@ -69,13 +70,19 @@ public class Game {
         }
     }
 
-    public void update() {
+    public void update() throws InterruptedException {
         synchronized (Game.class) {
             for (GameObject gameObject : gameObjects) {
                 gameObject.update();
 
                 for (GameObject otherGameObject: gameObjects) {
                     gameObject.checkCollision(otherGameObject);
+
+                    if (getPlayerOneScore() == WIN_SCORE) {
+                        new Game();
+                    } else if (getPlayerTwoScore() == WIN_SCORE) {
+                        new Game();
+                    }
                 }
 
                 if (gameObject.isDead) {

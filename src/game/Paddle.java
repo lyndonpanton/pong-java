@@ -20,6 +20,7 @@ public class Paddle extends GameObject {
 
     private final Controller controller;
     public ControlType controlType;
+    public boolean hasWon;
 
 //    public Paddle(
 //            Controller controller,
