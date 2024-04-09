@@ -30,12 +30,13 @@ part of the paddle it hit
 
 ## Sound
 
-- [ ] Gameplay background music
-- [ ] Ball bounce on paddle sound effect
 - [ ] Point scored sound effect
+- [ ] Gameplay background music
 - [ ] Game start sound effect
 - [ ] Game win sound effect
     - Dependency #1: [Create a win condition](#gameplay)
+- [x] Ball bounce on paddle sound effect
+- [x] Ball bounce on top or bottom edge sound effect
 
 ## User Interface
 

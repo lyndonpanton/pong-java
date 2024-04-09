@@ -1,5 +1,6 @@
 package game;
 
+import manager.SoundManager;
 import utilities.Vector2D;
 
 import java.awt.*;
@@ -84,15 +85,22 @@ public class Ball extends GameObject {
         return this.position.y;
     }
 
+    @Override
+    public void handleCollision() {
+        super.handleCollision();
+
+        if (this.velocity.y < 0) {
+            // Going towards player one
+            SoundManager.play(SoundManager.popupClose1);
+        } else {
+            // Going towards player two
+            SoundManager.play(SoundManager.popupOpen1);
+        }
+    }
+
     public void reverseVelocityY()
     {
         this.velocity.y *= -1;
+        SoundManager.play(SoundManager.cancel1);
     }
-
-    /*
-        if ((ball x position + radius / ball x position - radius / ball position) is between (paddle left-most coordinate and paddle right-most coordinate)) {
-
-        }
-
-     */
 }
