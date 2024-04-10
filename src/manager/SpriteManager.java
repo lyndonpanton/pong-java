@@ -9,8 +9,7 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 
 public class SpriteManager {
-    // this may need modifying
-    public final static String path = "images/";
+    public final static String path = "sprites/arts/";
     public final static String ext = ".png";
 
     public static Map<String, Image> images = new HashMap<String, Image>();
