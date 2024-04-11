@@ -1,22 +1,43 @@
 package game;
 
 import manager.SoundManager;
+import manager.SpriteManager;
 import utilities.Vector2D;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 
 import static utilities.Constants.*;
+import static manager.SpriteManager.BALL;
 
 public class Ball extends GameObject {
     public static final int RADIUS = 10;
     public static final double HORIZONTAL_SPEED = 150;
 
+//    private final AffineTransform ballTransformation;
+
     public Ball(double x, double y, double velocityX, double velocityY) {
         super(new Vector2D(x, y), new Vector2D(velocityX, velocityY));
+
+//        double imageWidth = BALL.getWidth(null);
+//        double imageHeight = BALL.getHeight(null);
+//        double stretchX = 0.5;
+//        double stretchY = 0.5;
+//
+//        ballTransformation = new AffineTransform();
+//        ballTransformation.scale(stretchX, stretchY);
     }
 
     public Ball(Vector2D position, Vector2D velocity) {
         super(position, velocity);
+
+//        double imageWidth = BALL.getWidth(null);
+//        double imageHeight = BALL.getHeight(null);
+//        double stretchX = 0.5;
+//        double stretchY = 0.5;
+//
+//        ballTransformation = new AffineTransform();
+//        ballTransformation.scale(stretchX, stretchY);
     }
 
     public static Ball makeNewBall() {
@@ -56,6 +77,8 @@ public class Ball extends GameObject {
                 2 * RADIUS,
                 2 * RADIUS
         );
+
+//        g2D.drawImage(SpriteManager.BALL, ballTransformation, null);
     }
 
     public void update() {
