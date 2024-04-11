@@ -9,10 +9,23 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 
 public class SpriteManager {
-    public final static String path = "sprites/arts/";
+    public final static String path =
+            "sprites/simple-ping-pong-2d-game-assets/arts/";
     public final static String ext = ".png";
 
     public static Map<String, Image> images = new HashMap<String, Image>();
+
+    public static Image BALL, PLAYER_ONE, PLAYER_TWO, BOARD;
+    static {
+        try {
+            BALL = SpriteManager.loadImage("ball");
+            PLAYER_ONE = SpriteManager.loadImage("player");
+            PLAYER_TWO = SpriteManager.loadImage("computer");
+            BOARD = SpriteManager.loadImage("board");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public static Image getImage(String s) {
         return images.get(s);
