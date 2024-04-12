@@ -17,7 +17,7 @@ public class View extends JComponent {
     public static final String font = Font.MONOSPACED;
 
     private final Game game;
-    private final Image BACKGROUND_IMAGE = SpriteManager.BOARD;
+    private Image BACKGROUND_IMAGE = SpriteManager.BOARD;
     private final AffineTransform backgroundTransformation;
 
     public View(Game game) {
@@ -26,9 +26,9 @@ public class View extends JComponent {
         double imageWidth = BACKGROUND_IMAGE.getWidth(null);
         double imageHeight = BACKGROUND_IMAGE.getHeight(null);
         double stretchX =
-                imageWidth > FRAME_WIDTH ? 1 : FRAME_WIDTH / imageWidth;
+                imageWidth < FRAME_WIDTH ? 1 : FRAME_WIDTH / imageWidth;
         double stretchY =
-                imageHeight > FRAME_HEIGHT ? 1 : FRAME_HEIGHT / imageHeight;
+                imageHeight < FRAME_HEIGHT ? 1 : FRAME_HEIGHT / imageHeight;
 
         backgroundTransformation = new AffineTransform();
         backgroundTransformation.scale(stretchX, stretchY);

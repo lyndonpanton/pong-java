@@ -19,8 +19,8 @@ public class SpriteManager {
     static {
         try {
             BALL = SpriteManager.loadImage("ball");
-            PLAYER_ONE = SpriteManager.loadImage("player");
-            PLAYER_TWO = SpriteManager.loadImage("computer");
+            PLAYER_ONE = SpriteManager.loadImage("player-one");
+            PLAYER_TWO = SpriteManager.loadImage("player-two");
             BOARD = SpriteManager.loadImage("board");
         } catch (Exception e) {
             e.printStackTrace();

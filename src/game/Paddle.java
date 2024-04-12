@@ -9,7 +9,6 @@ import static utilities.Constants.*;
 public class Paddle extends GameObject {
     public static final int WIDTH = 10;
     public static final int HEIGHT = 40;
-
     public static double SPEED = 200;
 
     public Color colour;
@@ -18,22 +17,6 @@ public class Paddle extends GameObject {
     private final Controller controller;
     public ControlType controlType;
     public boolean hasWon;
-
-//    public Paddle(
-//            Controller controller,
-//            Vector2D position,
-//            Vector2D direction,
-//            ControlType controlType,
-//            Color colour
-//    ) {
-//        super(position, direction);
-//        this.controller = controller;
-//        this.position = position;
-//        this.velocity = new Vector2D(0, 0);
-//        this.direction = direction;
-//        this.controlType = controlType;
-//        this.colour = colour;
-//    }
 
     public Paddle(
             Controller controller,
@@ -63,11 +46,6 @@ public class Paddle extends GameObject {
         }
 
         if (Game.GAME_STATE == GameState.PLAYING) {
-
-        /* TODO
-            Stop the paddle past the vertical edges of the screen
-         */
-
             if (action.movement > 0 && position.y + HEIGHT < FRAME_HEIGHT) {
                 this.position.y += SPEED * DT;
             } else if (action.movement < 0 && position.y > 0) {

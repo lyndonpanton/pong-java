@@ -87,7 +87,7 @@ public class Ball extends GameObject {
 //        this.position.x += this.velocity.x * DT;
 //        this.position.y += this.velocity.y * DT;
 
-            this.position.add(this.velocity);
+            this.position.add(this.velocity.multiply(DT));
 
             if (getX() < -Ball.RADIUS) {
                 this.isDead = true;
