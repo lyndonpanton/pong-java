@@ -11,7 +11,7 @@ horizontal, fastest when at the minimum or maximum angle)
 
 ## Gameplay
 
-- [ ] Allow the user to pause and unpause the game
+- [ ] Create a menu on game pause (see later)
 - [ ] Correct the movement of the paddles
   - Up and down movements should not negatively affect each other
 - [ ] When the ball hits a paddle, its new trajectory should be based off what
@@ -23,6 +23,7 @@ part of the paddle it hit
 - ADDITIONAL FEATURE: Balls break up into smaller balls after a certain amount of collisions
 - [x] Create a win condition (e.g., first player to score ten points wins)
 - [x] Reset the game once a player scores a certain number of 10 points
+- [x] Allow the user to pause and unpause the game
 
 ## Graphics
 
