@@ -68,9 +68,9 @@ public class Paddle extends GameObject {
             Stop the paddle past the vertical edges of the screen
          */
 
-            if (action.movement > 0) {
+            if (action.movement > 0 && position.y + HEIGHT < FRAME_HEIGHT) {
                 this.position.y += SPEED * DT;
-            } else if (action.movement < 0) {
+            } else if (action.movement < 0 && position.y > 0) {
                 this.position.y -= SPEED * DT;
             }
 
