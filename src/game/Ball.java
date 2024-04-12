@@ -3,6 +3,7 @@ package game;
 import manager.SoundManager;
 import manager.SpriteManager;
 import utilities.GameState;
+import utilities.Sprite;
 import utilities.Vector2D;
 
 import java.awt.*;
@@ -14,12 +15,23 @@ import static manager.SpriteManager.BALL;
 public class Ball extends GameObject {
     public static final int RADIUS = 10;
     public static final double HORIZONTAL_SPEED = 150;
+    public Sprite sprite;
 
 //    private final AffineTransform ballTransformation;
 
     public Ball(double x, double y, double velocityX, double velocityY) {
         super(new Vector2D(x, y), new Vector2D(velocityX, velocityY));
-
+//        sprite = new Sprite(
+//                Sprite.BALL,
+//                new Vector2D(
+//                        (double) FRAME_WIDTH / 2,
+//                        (double) FRAME_HEIGHT / 2
+//                ),
+//                new Vector2D(0, 0),
+//                Sprite.BALL.getWidth(null),
+//                Sprite.BALL.getHeight(null)
+//        );
+//
 //        double imageWidth = BALL.getWidth(null);
 //        double imageHeight = BALL.getHeight(null);
 //        double stretchX = 0.5;
@@ -31,7 +43,17 @@ public class Ball extends GameObject {
 
     public Ball(Vector2D position, Vector2D velocity) {
         super(position, velocity);
-
+//        sprite = new Sprite(
+//                Sprite.BALL,
+//                new Vector2D(
+//                        (double) FRAME_WIDTH / 2,
+//                        (double) FRAME_HEIGHT / 2
+//                ),
+//                new Vector2D(0, 0),
+//                Sprite.BALL.getWidth(null),
+//                Sprite.BALL.getHeight(null)
+//        );
+//
 //        double imageWidth = BALL.getWidth(null);
 //        double imageHeight = BALL.getHeight(null);
 //        double stretchX = 0.5;
@@ -79,15 +101,15 @@ public class Ball extends GameObject {
                 2 * RADIUS
         );
 
-//        g2D.drawImage(SpriteManager.BALL, ballTransformation, null);
+//        g2D.drawImage(sprite.image, ballTransformation, null);
     }
 
     public void update() {
         if (Game.GAME_STATE == GameState.PLAYING) {
-//        this.position.x += this.velocity.x * DT;
-//        this.position.y += this.velocity.y * DT;
+            this.position.x += this.velocity.x;
+            this.position.y += this.velocity.y;
 
-            this.position.add(this.velocity.multiply(DT));
+//            this.position.add(this.velocity.multiply(DT));
 
             if (getX() < -Ball.RADIUS) {
                 this.isDead = true;
@@ -115,10 +137,8 @@ public class Ball extends GameObject {
         super.handleCollision();
 
         if (this.velocity.y < 0) {
-            // Going towards player one
             SoundManager.play(SoundManager.popupClose1);
         } else {
-            // Going towards player two
             SoundManager.play(SoundManager.popupOpen1);
         }
     }
