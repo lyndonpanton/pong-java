@@ -21,8 +21,10 @@ public class Game {
     public static int playerOneScore;
     public static int playerTwoScore;
     public final int WIN_SCORE = 10;
+    public static GameState GAME_STATE;
 
     public Game() {
+        GAME_STATE = GameState.PLAYING;
         ball = Ball.makeNewBall();
         playerOneController = new PlayerOneKeys();
         playerTwoController = new PlayerTwoKeys();

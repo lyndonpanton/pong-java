@@ -1,9 +1,6 @@
 package game;
 
-import utilities.Action;
-import utilities.ControlType;
-import utilities.Controller;
-import utilities.Vector2D;
+import utilities.*;
 
 import java.awt.*;
 
@@ -13,7 +10,7 @@ public class Paddle extends GameObject {
     public static final int WIDTH = 10;
     public static final int HEIGHT = 40;
 
-    public static final double SPEED = 200;
+    public static double SPEED = 200;
 
     public Color colour;
     public Vector2D direction;
@@ -59,15 +56,23 @@ public class Paddle extends GameObject {
     public void update() {
         Action action = controller.getAction();
 
+        if (action.isPaused) {
+            Game.GAME_STATE = GameState.PAUSED;
+        } else {
+            Game.GAME_STATE = GameState.PLAYING;
+        }
+
+        if (Game.GAME_STATE == GameState.PLAYING) {
+
         /* TODO
             Stop the paddle past the vertical edges of the screen
          */
 
-        if (action.movement > 0) {
-            this.position.y += SPEED * DT;
-        } else if (action.movement < 0) {
-            this.position.y -= SPEED * DT;
-        }
+            if (action.movement > 0) {
+                this.position.y += SPEED * DT;
+            } else if (action.movement < 0) {
+                this.position.y -= SPEED * DT;
+            }
 
 //        if (controlType == ControlType.LETTERS) {
 //            if (action.togglePause) {
@@ -86,6 +91,7 @@ public class Paddle extends GameObject {
 //                this.position.y -= SPEED * DT;
 //            }
 //        }
+        }
     }
 
     public void resetPosition() {

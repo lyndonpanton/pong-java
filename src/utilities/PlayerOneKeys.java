@@ -16,7 +16,7 @@ public class PlayerOneKeys extends Keys {
                 action.movement = 1;
                 break;
             case KeyEvent.VK_ESCAPE:
-                action.togglePause = !action.togglePause;
+                action.isPaused = !action.isPaused;
         }
     }
 

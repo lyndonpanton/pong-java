@@ -2,6 +2,7 @@ package game;
 
 import manager.SoundManager;
 import manager.SpriteManager;
+import utilities.GameState;
 import utilities.Vector2D;
 
 import java.awt.*;
@@ -82,21 +83,22 @@ public class Ball extends GameObject {
     }
 
     public void update() {
+        if (Game.GAME_STATE == GameState.PLAYING) {
 //        this.position.x += this.velocity.x * DT;
 //        this.position.y += this.velocity.y * DT;
 
-        this.position.add(this.velocity);
+            this.position.add(this.velocity);
 
-        if (getX() < -Ball.RADIUS) {
-            this.isDead = true;
-            Game.incrementPlayerTwoScore();
-        } else if (getX() > FRAME_WIDTH + Ball.RADIUS) {
-            this.isDead = true;
-            Game.incrementPlayerOneScore();
-        } else if (getY() - Ball.RADIUS <= 0
-                || getY() + Ball.RADIUS >= FRAME_HEIGHT)
-        {
-            reverseVelocityY();
+            if (getX() < -Ball.RADIUS) {
+                this.isDead = true;
+                Game.incrementPlayerTwoScore();
+            } else if (getX() > FRAME_WIDTH + Ball.RADIUS) {
+                this.isDead = true;
+                Game.incrementPlayerOneScore();
+            } else if (getY() - Ball.RADIUS <= 0
+                    || getY() + Ball.RADIUS >= FRAME_HEIGHT) {
+                reverseVelocityY();
+            }
         }
     }
 
