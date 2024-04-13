@@ -35,6 +35,8 @@ part of the paddle it hit
 ## Sound
 
 - [ ] Point scored sound effect
+  - [ ] Point for player one
+  - [ ] Point for player two
 - [ ] Gameplay background music
 - [ ] Game start sound effect
 - [ ] Game win sound effect
