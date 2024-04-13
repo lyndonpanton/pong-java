@@ -11,7 +11,6 @@ public class SoundManager {
 
     // note: having too many clips open may cause
     // "LineUnavailableException: No Free Voices"
-    public final static Clip[] bullets = new Clip[14];
 
     public final static Clip cancel1 = getClip("cancel-1");
     public final static Clip cancel2 = getClip("cancel-2");
@@ -69,7 +68,6 @@ public class SoundManager {
         }
         return clip;
     }
-
 
     // Game start
     // Game end

@@ -136,7 +136,7 @@ public class Ball extends GameObject {
     public void handleCollision() {
         super.handleCollision();
 
-        if (this.velocity.y < 0) {
+        if (this.velocity.x < 0) {
             SoundManager.play(SoundManager.popupClose1);
         } else {
             SoundManager.play(SoundManager.popupOpen1);
