@@ -7,11 +7,6 @@ import java.io.File;
 
 
 public class SoundManager {
-
-    static int nBullet = 0;
-    static boolean thrusting = false;
-
-    final static String path = "audio/";
     private final static String sfxPath = "audio/ultimate-ui-sfx-pack/wav-sd/";
 
     // note: having too many clips open may cause
@@ -75,15 +70,6 @@ public class SoundManager {
         return clip;
     }
 
-    // methods which modify (static) fields
-
-    public static void fire() {
-        // fire the n-th bullet and increment the index
-        Clip clip = bullets[nBullet];
-        clip.setFramePosition(0);
-        clip.start();
-        nBullet = (nBullet + 1) % bullets.length;
-    }
 
     // Game start
     // Game end
