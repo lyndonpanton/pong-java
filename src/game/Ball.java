@@ -14,7 +14,9 @@ import static manager.SpriteManager.BALL;
 
 public class Ball extends GameObject {
     public static final int RADIUS = 10;
-    public static final double HORIZONTAL_SPEED = 150;
+    public static double HORIZONTAL_SPEED = 150;
+    public static double SPEED_INCREMENT_FACTOR = 1.1f;
+    public int paddleCollisions;
     public Sprite sprite;
 
 //    private final AffineTransform ballTransformation;
@@ -143,6 +145,12 @@ public class Ball extends GameObject {
         } else {
             SoundManager.play(SoundManager.popupOpen1);
         }
+
+        if (paddleCollisions < 10) {
+            this.velocity.multiply(SPEED_INCREMENT_FACTOR);
+        }
+        
+        paddleCollisions++;
     }
 
     public void reverseVelocityY()
