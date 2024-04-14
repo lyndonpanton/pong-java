@@ -18,12 +18,12 @@ horizontal, fastest when at the minimum or maximum angle)
 part of the paddle it hit
     - Store the desired positions on a paddle (e.g., The center, top third,
     bottom third) can help with this
-- ADDITIONAL FEATURE: More balls spawn on the screen as the game progresses
-- ADDITIONAL FEATURE: Ball increases velocity as the game progresses
-- ADDITIONAL FEATURE: Balls break up into smaller balls after a certain amount of collisions
+- [ ] ADDITIONAL FEATURE: More balls spawn on the screen as the game progresses
+- [ ] ADDITIONAL FEATURE: Balls break up into smaller balls after a certain amount of collisions
 - [x] Create a win condition (e.g., first player to score ten points wins)
 - [x] Reset the game once a player scores a certain number of 10 points
 - [x] Allow the user to pause and unpause the game
+- [x] ADDITIONAL FEATURE: Ball increases velocity as the game progresses
 
 ## Graphics
 
@@ -34,15 +34,15 @@ part of the paddle it hit
 
 ## Sound
 
-- [ ] Point scored sound effect
-  - [ ] Point for player one
-  - [ ] Point for player two
 - [ ] Gameplay background music
 - [ ] Game start sound effect
 - [ ] Game win sound effect
     - Dependency #1: [Create a win condition](#gameplay)
 - [x] Ball bounce on paddle sound effect
 - [x] Ball bounce on top or bottom edge sound effect
+- [x] Point scored sound effect
+  - [x] Point for player one
+  - [x] Point for player two
 
 ## User Interface
 

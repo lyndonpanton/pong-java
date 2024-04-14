@@ -149,7 +149,7 @@ public class Ball extends GameObject {
         if (paddleCollisions < 10) {
             this.velocity.multiply(SPEED_INCREMENT_FACTOR);
         }
-        
+
         paddleCollisions++;
     }
 
