@@ -117,6 +117,7 @@ public class Ball extends GameObject {
                 Game.incrementPlayerTwoScore();
             } else if (getX() > FRAME_WIDTH + Ball.RADIUS) {
                 this.isDead = true;
+                SoundManager.play(SoundManager.select2);
                 Game.incrementPlayerOneScore();
             } else if (getY() - Ball.RADIUS <= 0
                     || getY() + Ball.RADIUS >= FRAME_HEIGHT) {
