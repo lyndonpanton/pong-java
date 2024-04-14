@@ -106,12 +106,10 @@ public class Game {
     }
 
     public static void incrementPlayerOneScore() {
-//        SoundManager.play(Sound);
         playerOneScore += 1;
     }
 
     public static void incrementPlayerTwoScore() {
-//        SoundManager.play();
         playerTwoScore += 1;
     }
 
