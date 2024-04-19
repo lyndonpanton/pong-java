@@ -29,10 +29,6 @@ public abstract class GameObject {
     }
 
     public boolean checkOverlap(GameObject other) {
-        // If the ball is between the
-        //  - Left and right x coordinates of the paddle
-        //  - Top and bottom y coordinates of the paddle
-
         if (this instanceof Ball ball && other instanceof Paddle paddle) {
             if (
                     (ball.position.x >= paddle.position.x)
